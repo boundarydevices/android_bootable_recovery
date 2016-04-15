@@ -55,7 +55,9 @@ set_usb_driver(bool enabled) {
 static void
 stop_adbd() {
     property_set("ctl.stop", "adbd");
+    usleep(100*1000);
     set_usb_driver(false);
+    usleep(100*1000);
 }
 
 
