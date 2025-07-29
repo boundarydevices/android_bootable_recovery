@@ -335,7 +335,7 @@ GRSurface* MinuiBackendDrm::Init() {
   drm_fd = -1;
 
   /* Consider DRM devices in order. */
-  for (int i = 0; i < DRM_MAX_MINOR; i++) {
+  for (int i = 1; i < DRM_MAX_MINOR; i++) {
     auto dev_name = android::base::StringPrintf(DRM_DEV_NAME, DRM_DIR_NAME, i);
     android::base::unique_fd fd(open(dev_name.c_str(), O_RDWR | O_CLOEXEC));
     if (fd == -1) continue;
